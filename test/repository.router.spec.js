@@ -1,15 +1,15 @@
-import supertest from 'supertest'
-import app from '../app'
-
+///////////////////////////////////////////////////////
+const supertest = require('supertest')
+const app = require('../app')
 const request = supertest(app)
-
-const params = {
-    name:"18-12-2018",
-    language:"JavaScript",
-    limit:"2"
-}
-
+///////////////////////////////////////////////////////
 describe("Servidor Activo",() => {
+
+    const params = {
+        name:"18-12-2018",
+        language:"JavaScript",
+        limit:"2"
+    }
 
     /*Test 01 */
     describe("GET /", () =>{
@@ -37,3 +37,4 @@ describe("Servidor Activo",() => {
     })
 
 })
+///////////////////////////////////////////////////////

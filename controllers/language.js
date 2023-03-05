@@ -1,5 +1,5 @@
 
-export default [
+module.exports = [
     {name:"ActionScript"},
     {name:"C"},
     {name:"C#"},

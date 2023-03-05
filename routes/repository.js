@@ -1,8 +1,9 @@
 //////////////////////////////////////////////////////////////////////////////////////////
-import { Router }  from 'express'
-import RepoValidations from '../validations/repository.js'
-import RepoController from '../controllers/repository.js'
-import moment from 'moment'
+const Router = require('express')
+const moment = require('moment')
+//////////////////////////////////////////////////////////////////////////////////////////
+const RepoValidations = require('../validations/repository.js')
+const RepoController = require('../controllers/repository.js')
 //////////////////////////////////////////////////////////////////////////////////////////
 const router = Router()
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +21,7 @@ router.get('/', async (req, res) => {
 
   /*Repuesta Al Usuario */
   const respuesta = resultado.status == 200 ? fix_json( resultado.respuesta ) : resultado.respuesta
-  res.status( resultado.status ).send( respuesta )
+  res.status( resultado.status ).json( respuesta )
  
 })
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +41,7 @@ router.get('/report/name/:name/language/:language/limit/:limit',RepoValidations,
 
   /*Repuesta Al Usuario */
   const respuesta = resultado.status == 200 ? fix_json( resultado.respuesta ) : resultado.respuesta
-  res.status( resultado.status ).send( respuesta )
+  res.status( resultado.status ).json( respuesta )
 
 })
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -59,9 +60,9 @@ router.get('/download/name/:name/language/:language/limit/:limit',RepoValidation
    resultado.status === 200 ? res.append("Content-Type","text/csv") && res.append("Content-Disposition","attachment;filename=resultado.csv") : null
   
    /*Repuesta Al Usuario */
-   res.status( resultado.status ).send( resultado.respuesta )
+   res.status( resultado.status ).json( resultado.respuesta )
   
 })
 //////////////////////////////////////////////////////////////////////////////////////////
-export default router
+module.exports = router
 //////////////////////////////////////////////////////////////////////////////////////////

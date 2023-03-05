@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 /* Librerias/Modulos/Herramientas */
-import {Octokit} from '@octokit/rest'
-import csvtojson from 'csvtojson'
-import jsonexport from "jsonexport"
-import Axios from 'axios'
-import { setupCache } from 'axios-cache-interceptor';
+const {Octokit} = require('@octokit/rest')
+const csvtojson = require('csvtojson')
+const jsonexport = require("jsonexport")
+const Axios = require('axios')
+const { setupCache } = require('axios-cache-interceptor')
 //////////////////////////////////////////////////////////////////////////////////////////////
 const axios = setupCache(Axios)
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,6 +85,6 @@ const ReadFileRepoDownload = async ( {name,language,limit}  ) => {
     return { status:200,respuesta:csv}
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
-export default { ListFilesRepo,ReadFileRepo,ReadFileRepoDownload }
+module.exports =  { ListFilesRepo,ReadFileRepo,ReadFileRepoDownload }
 //////////////////////////////////////////////////////////////////////////////////////////////
 

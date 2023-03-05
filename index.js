@@ -1,10 +1,14 @@
 ///////////////////////////////////////////////////////////////////////////////////
-import app from './app.js'
+const dotenv = require( 'dotenv')
+const app  = require( './app.js')
 ///////////////////////////////////////////////////////////////////////////////////
-( async _=> {
+async function main(){
+
+    /*Iniciar Variables De Entorno */
+    dotenv.config() 
 
     /*Inicia El Puerto */
     await app.listen( process.env.PORT, () =>  console.log(`API Corriendo Por El Puerto :${ process.env.PORT }`) )
-   
-})()
+}
+main()
 ///////////////////////////////////////////////////////////////////////////////////

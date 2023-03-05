@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
-export default (req, res, next) => {
+module.exports =  ( req, res, next ) => {
 
     const ms = process.env.TIMEOUT ? Number( process.env.TIMEOUT ) : 0
 
@@ -15,7 +15,7 @@ export default (req, res, next) => {
           
     }) 
     
-    res.on('finish', __ =>  clearInterval( time ) )
+    res.on('finish', () =>  clearInterval( time ) )
 
     next()
 }
